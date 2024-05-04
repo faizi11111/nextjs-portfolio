@@ -6,7 +6,7 @@ const HeroSection = () => {
     <section>
       <div className="grid grid-cols-1 md:grid-cols-12">
         <div className="col-span-12 md:col-span-7 place-self-center md:text-left text-center">
-          <h1 className="text-white mb-4 text-4xl lg:text-6xl font-extrabold">
+          <h1 className="text-white mb-4 text-4xl md:text-6xl font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-red-400">
               {" "}
               Hello, I'm{" "}
@@ -46,12 +46,12 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="col-span-5 flex justify-center items-center">
-          <div className="h-[250px] w-[250px] md:h-[400px] md:w-[400px] bg-slate-900 rounded-full relative mt-8 lg:mt-0">
+          <div className="h-[250px] w-[250px] md:h-[300px] md:w-[300px] bg-slate-900 rounded-full relative mt-8 md:mt-0">
             {" "}
             <Image
               src="/avatar.png"
-              width={400}
-              height={400}
+              width={300}
+              height={300}
               className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt=""
             ></Image>
