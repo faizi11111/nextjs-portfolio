@@ -5,6 +5,7 @@ import { useState } from "react";
 import Bars3Icon from "@heroicons/react/24/outline/Bars3Icon";
 import XmarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 import { MenuOverlay } from "./MenuOverlay";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { title: "Home", href: "#hero" },
@@ -16,29 +17,30 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="fixed top-0 left-0 right-0 z-20 bg-black bg-opacity-100">
-      <div className="flex flex-wrap items-center justify-between mx-auto px-8">
-        <Link className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-red-400" href={"/"}>
-          Faizan Farooq
+    <nav className="fixed top-0 left-0 right-0 z-20 bg-card bg-opacity-90 backdrop-blur-3xl">
+      <div className="flex flex-wrap items-center justify-between mx-auto px-4 md:px-8 py-3">
+        <Link className="text-4xl font-semibold gradient-text" href={"/"}>
+          Faizan F.
         </Link>
-        <div className="block md:hidden">
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
           {open ? (
             <button
               onClick={() => setOpen(false)}
-              className="flex items-center text-slate-300 hover:text-white border border-slate-300 hover:border-white px-3 py-2 rounded-lg"
+              className="p-2 flex items-center justify-center transition-colors cursor-pointer text-muted-foreground hover:text-foreground"
             >
               <XmarkIcon className="h-5 w-5" />
             </button>
           ) : (
             <button
               onClick={() => setOpen(true)}
-              className="flex items-center text-slate-300 hover:text-white border border-slate-300 hover:border-white px-3 py-2 rounded-lg"
+              className="p-2 flex items-center justify-center transition-colors cursor-pointer text-muted-foreground hover:text-foreground"
             >
-              <Bars3Icon className="h-5 w-5 " />
+              <Bars3Icon className="h-5 w-5" />
             </button>
           )}
         </div>
-        <div className="hidden md:block md:w-auto">
+        <div className="hidden md:flex md:items-center md:w-auto gap-4">
           <ul className="flex md:flex-row p-4 space-x-4">
             {navLinks.map((link, index) => {
               return (
@@ -48,9 +50,10 @@ const Navbar = () => {
               );
             })}
           </ul>
+          <ThemeToggle />
         </div>
       </div>
-      {open ? <MenuOverlay links={navLinks} /> : <></>}
+      {open ? <MenuOverlay links={navLinks} setOpen={setOpen} /> : null}
     </nav>
   );
 };

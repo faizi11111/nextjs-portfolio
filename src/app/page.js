@@ -7,14 +7,17 @@ import { Footer } from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-slate-950 container mx-auto p-4">
-      <Navbar />
-      <div className="container mx-auto px-12 py-16 mt-16">
-        <HeroSection />
-        <AboutSection />
-        <ProjectSection />
-      </div>
+    <>
+      <main className="flex min-h-screen flex-col container mx-auto p-4">
+        <Navbar />
+        <div className="container mx-auto px-2 md:px-12 py-16 mt-16">
+          <HeroSection />
+          <AboutSection />
+          <ProjectSection />
+        </div>
+
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

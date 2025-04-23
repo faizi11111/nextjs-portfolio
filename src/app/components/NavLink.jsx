@@ -1,8 +1,13 @@
+"use client";
 import Link from "next/link"
+import { useTheme } from "../context/ThemeContext";
+
 export const Navlink = ({href, title}) => {
+  const { theme } = useTheme();
+  
   return (
     <Link
-      className="text-slate-300 hover:text-white block py-2 pl-3 pr-4"
+      className="nav-link"
       href={href}
     >
       {title}

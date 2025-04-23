@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
+import { useTheme } from "../context/ThemeContext";
 
 // Footer section data
 const footerData = [
@@ -51,7 +52,7 @@ const socialLinks = [
 // Accordion component for mobile view
 const AccordionSection = ({ section, isOpen, toggleAccordion }) => {
   return (
-    <div className="border-b border-slate-800 py-4 md:border-none">
+    <div className="border-b border-theme py-4 md:border-none">
       <div 
         className="flex justify-between items-center cursor-pointer md:cursor-default"
         onClick={toggleAccordion}
@@ -82,12 +83,12 @@ const AccordionSection = ({ section, isOpen, toggleAccordion }) => {
               {item.href ? (
                 <Link 
                   href={item.href} 
-                  className="text-slate-300 hover:text-white transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   {item.name}
                 </Link>
               ) : (
-                <span className="text-slate-300">{item.name}</span>
+                <span className="text-muted-foreground">{item.name}</span>
               )}
             </li>
           ))}
@@ -103,12 +104,12 @@ const AccordionSection = ({ section, isOpen, toggleAccordion }) => {
               {item.href ? (
                 <Link 
                   href={item.href} 
-                  className="text-slate-300 hover:text-white transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   {item.name}
                 </Link>
               ) : (
-                <span className="text-slate-300">{item.name}</span>
+                <span className="text-muted-foreground">{item.name}</span>
               )}
             </li>
           ))}
@@ -121,6 +122,7 @@ const AccordionSection = ({ section, isOpen, toggleAccordion }) => {
 export const Footer = () => {
   const [openSections, setOpenSections] = useState({});
   const [isMobile, setIsMobile] = useState(false);
+  const { theme } = useTheme();
 
   // Check for mobile on mount and window resize
   useEffect(() => {
@@ -150,15 +152,15 @@ export const Footer = () => {
   };
 
   return (
-    <footer id="contact" className="bg-black text-white py-16 border-t border-slate-800">
+    <footer id="contact" className="py-16 border-t border-theme bg-card">
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo and Description Section */}
           <div className="mb-8 md:mb-0 md:block hidden">
-            <Link href="/" className="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-red-400">
+            <Link href="/" className="text-3xl font-semibold gradient-text">
               Faizan Farooq
             </Link>
-            <p className="mt-4 text-slate-300 text-sm max-w-md">
+            <p className="mt-4 text-muted-foreground text-sm max-w-md">
               Full-stack Software Engineer with expertise in React, Node.js, AWS, and GraphQL. 
               Passionate about building high-performance applications that solve real problems.
             </p>
@@ -171,7 +173,7 @@ export const Footer = () => {
                   href={social.href} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-muted hover:text-primary transition-colors"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -192,12 +194,12 @@ export const Footer = () => {
         </div>
         
         {/* Copyright Section */}
-        <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row md:justify-between text-slate-400 text-sm">
+        <div className="mt-16 pt-8 border-t border-theme flex flex-col md:flex-row md:justify-between text-muted text-sm">
           <p>© {new Date().getFullYear()} Faizan Farooq. All rights reserved.</p>
           <div className="mt-4 md:mt-0 space-x-6">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-primary">Privacy Policy</Link>
             <span>|</span>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Use</Link>
+            <Link href="#" className="hover:text-primary">Terms of Use</Link>
           </div>
         </div>
       </div>

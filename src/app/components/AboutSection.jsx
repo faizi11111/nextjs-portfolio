@@ -101,12 +101,12 @@ export const AboutSection = () => {
     });
   };
   return (
-    <section id="about" className="text-white">
+    <section id="about">
       <div className="md:grid grid-cols-2 gap-8 items-center px-4 py-8 xl:gap-16 sm:py-16">
         <Image src="/about-me.png" height={500} width={500} alt="About Faizan Farooq" />
         <div className="mt-4 md:mt-0 flex flex-col h-full">
           <h2 className="text-4xl font-bold mb-4">About Me</h2>
-          <p className="text-base lg:text-lg">
+          <p className="text-muted-foreground text-base lg:text-lg">
             Full-stack Software Engineer with expertise in React, Node.js, AWS, and GraphQL. 
             Skilled in building scalable web and mobile applications, optimizing databases, 
             and integrating third-party APIs. Passionate about writing clean code and mentoring developers.
@@ -130,7 +130,9 @@ export const AboutSection = () => {
               selectTab={() => handleChange("Experience")}
             />
           </div>
-          <div>{tabData.find((data) => data.id === tab).content}</div>
+          <div className="text-muted-foreground">
+            {tabData.find((data) => data.id === tab).content}
+          </div>
         </div>
       </div>
     </section>
