@@ -10,40 +10,22 @@ const tabData = [
     content: (
       <ul className="pl-2 pt-4 text-sm">
         <li>
-          <strong>TypeScript</strong>
+          <strong>Programming:</strong> JavaScript, TypeScript, Python, C++, Java
         </li>
         <li>
-          <strong>Node.js</strong>
+          <strong>Frontend:</strong> React, Next.js, React Native, Redux, TailwindCSS, MaterialUI
         </li>
         <li>
-          <strong>React.js</strong>
+          <strong>Backend:</strong> Node.js, Express, GraphQL, AWS, Serverless
         </li>
         <li>
-          <strong>Next.js</strong>
+          <strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, DynamoDB, Vector DBs
         </li>
         <li>
-          <strong>Facebook Graph API</strong>
+          <strong>Third-Party APIs:</strong> Facebook Graph API, Stripe, Shopify, Metamask, OpenAI
         </li>
         <li>
-          <strong>XState</strong>
-        </li>
-        <li>
-          <strong>Docker</strong>
-        </li>
-        <li>
-          <strong>AWS</strong>
-        </li>
-        <li>
-          <strong>Databases (SQL and NoSQL)</strong>
-        </li>
-        <li>
-          <strong>Jest</strong>
-        </li>
-        <li>
-          <strong>GraphQL</strong>
-        </li>
-        <li>
-          <strong>REST APIs</strong>
+          <strong>Tools:</strong> Docker, GitHub Actions, Jest, Strapi, LangChain, LlamaIndex
         </li>
       </ul>
     ),
@@ -54,10 +36,7 @@ const tabData = [
     content: (
       <ul className="pl-2 pt-4 text-sm">
         <li>
-          <strong>A Levels</strong>
-        </li>
-        <li>
-          <strong>Bachelor's in Computer Science from FAST-NUCES</strong>
+          <strong>Bachelor of Computer Science</strong> - FAST NUCES
         </li>
       </ul>
     ),
@@ -73,34 +52,38 @@ const tabData = [
           </h3>
           <ul className="list-disc ml-5">
             <li>
-              Develop and maintain <strong>scalable software solutions</strong>{" "}
-              catering to dynamic client needs.
+              Developed a full-stack security application for Bluewave Technology, leveraging 
+              React, PostgreSQL, and AWS.
             </li>
             <li>
-              Implement features and enhancements that{" "}
-              <strong>improve user engagement</strong> and system efficiency.
+              Built scalable admin dashboards using React, Reactstrap, and Apollo Client.
             </li>
             <li>
-              Collaborate with cross-functional teams to{" "}
-              <strong>define, design, and ship new features</strong>.
+              Architected backend systems using PostgreSQL, Hasura, and AWS Lambda, reducing 
+              query latency by 30%.
             </li>
             <li>
-              Utilize modern technologies and practices to ensure{" "}
-              <strong>high-quality software performance</strong>.
+              Integrated AWS Rekognition for real-time trespasser identification.
+            </li>
+            <li>
+              Designed React Native mobile applications and optimized med-tech applications.
             </li>
           </ul>
         </li>
         <li>
-          <h3 className="font-bold text-xl mt-2">Teaching Assistant (2021)</h3>
+          <h3 className="font-bold text-xl mt-2">Software Engineer at Foxtrax.io (2024)</h3>
           <ul className="list-disc ml-5">
             <li>
-              Assisted in the preparation and delivery of lectures and
-              coursework for{" "}
-              <strong>undergraduate computer science courses</strong>.
+              Developed marketing applications with improved performance and scalability.
             </li>
             <li>
-              Provided tutoring and support to students, enhancing their
-              understanding of <strong>complex technical concepts</strong>.
+              Optimized PostgreSQL queries with TimescaleDB, reducing latency by 50%.
+            </li>
+            <li>
+              Built GraphQL servers and integrated Facebook Marketing and Graph API.
+            </li>
+            <li>
+              Designed responsive admin dashboards using React, XState, and Styled Components.
             </li>
           </ul>
         </li>
@@ -118,16 +101,17 @@ export const AboutSection = () => {
     });
   };
   return (
-    <section className="text-white">
+    <section id="about" className="text-white">
       <div className="md:grid grid-cols-2 gap-8 items-center px-4 py-8 xl:gap-16 sm:py-16">
-        <Image src="/about-me.png" height={500} width={500} alt="" />
+        <Image src="/about-me.png" height={500} width={500} alt="About Faizan Farooq" />
         <div className="mt-4 md:mt-0 flex flex-col h-full">
           <h2 className="text-4xl font-bold mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Perferendis impedit eveniet non omnis! Cupiditate, in numquam unde
-            distinctio dolor officia veniam atque quo corrupti? Sapiente
-            molestias ut sequi nemo ipsam!
+            Full-stack Software Engineer with expertise in React, Node.js, AWS, and GraphQL. 
+            Skilled in building scalable web and mobile applications, optimizing databases, 
+            and integrating third-party APIs. Passionate about writing clean code and mentoring developers.
+            I've worked on security systems, healthcare applications, and marketing platforms,
+            delivering high-performance solutions that meet client needs.
           </p>
           <div className="flex flex-row mt-8">
             <TabButton

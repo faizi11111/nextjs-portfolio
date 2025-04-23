@@ -7,10 +7,10 @@ import XmarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 import { MenuOverlay } from "./MenuOverlay";
 
 const navLinks = [
-  { title: "Home", href: "/" },
-  { title: "About", href: "/about" },
-  { title: "Projects", href: "/projects" },
-  { title: "Contact", href: "/contact" },
+  { title: "Home", href: "#hero" },
+  { title: "About", href: "#about" },
+  { title: "Projects", href: "#projects" },
+  { title: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -18,8 +18,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-20 bg-black bg-opacity-100">
       <div className="flex flex-wrap items-center justify-between mx-auto px-8">
-        <Link className="text-5xl font-semibold text-white" href={"/"}>
-          LOGO
+        <Link className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-red-400" href={"/"}>
+          Faizan Farooq
         </Link>
         <div className="block md:hidden">
           {open ? (
@@ -40,9 +40,9 @@ const Navbar = () => {
         </div>
         <div className="hidden md:block md:w-auto">
           <ul className="flex md:flex-row p-4 space-x-4">
-            {navLinks.map((link) => {
+            {navLinks.map((link, index) => {
               return (
-                <li>
+                <li key={index}>
                   <Navlink href={link.href} title={link.title} />
                 </li>
               );
