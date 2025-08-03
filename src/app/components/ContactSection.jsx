@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
+import { SOCIAL_URLS, CONTACT_INFO } from "../constants";
 
 export const ContactSection = () => {
   const [emailCopied, setEmailCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("faizanfarooq993@gmail.com");
+    navigator.clipboard.writeText(CONTACT_INFO.email);
     setEmailCopied(true);
     setTimeout(() => setEmailCopied(false), 2000);
   };
@@ -18,7 +19,7 @@ export const ContactSection = () => {
           <p className="text-xl mb-4">Feel free to reach out to me for collaboration or opportunities</p>
           <div className="flex flex-col items-center space-y-4 md:flex-row md:justify-center md:space-y-0 md:space-x-4">
             <a
-              href="mailto:faizanfarooq993@gmail.com"
+              href={`mailto:${CONTACT_INFO.email}`}
               className="py-3 px-6 bg-gradient-to-r from-blue-500 to-red-400 rounded-full text-black font-medium"
             >
               Send Email
@@ -34,7 +35,7 @@ export const ContactSection = () => {
         <div className="mt-8">
           <h3 className="text-xl font-bold mb-4 text-center">Connect With Me</h3>
           <div className="flex justify-center space-x-6">
-            <a href="https://linkedin.com/in/faizan-farooq" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
+            <a href={SOCIAL_URLS.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
               <svg 
                 className="w-8 h-8" 
                 fill="currentColor" 
@@ -45,7 +46,7 @@ export const ContactSection = () => {
               </svg>
               <span className="sr-only">LinkedIn</span>
             </a>
-            <a href="https://github.com/faizanfarooq" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">
+            <a href={SOCIAL_URLS.github} target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">
               <svg 
                 className="w-8 h-8" 
                 fill="currentColor" 

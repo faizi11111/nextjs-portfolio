@@ -2,6 +2,8 @@
 import Image from "next/image";
 import { useState, useTransition } from "react";
 import { TabButton } from "./TabButton";
+import { AnimatedSection } from "./AnimatedSection";
+import { motion } from "framer-motion";
 
 const tabData = [
   {
@@ -48,7 +50,7 @@ const tabData = [
       <ul className="pl-2 pt-4 text-sm">
         <li>
           <h3 className="font-bold text-xl mt-2">
-            Software Engineer at Ripeseed (2021 - Present)
+            Sr. Software Engineer at Ripeseed (2021 - Present)
           </h3>
           <ul className="list-disc ml-5">
             <li>
@@ -59,8 +61,7 @@ const tabData = [
               Built scalable admin dashboards using React, Reactstrap, and Apollo Client.
             </li>
             <li>
-              Architected backend systems using PostgreSQL, Hasura, and AWS Lambda, reducing 
-              query latency by 30%.
+              Architected backend systems using PostgreSQL, Hasura, and AWS Lambda
             </li>
             <li>
               Integrated AWS Rekognition for real-time trespasser identification.
@@ -101,9 +102,15 @@ export const AboutSection = () => {
     });
   };
   return (
-    <section id="about">
+    <AnimatedSection id="about" animation="fadeInLeft">
       <div className="md:grid grid-cols-2 gap-8 items-center px-4 py-8 xl:gap-16 sm:py-16">
-        <Image src="/about-me.png" height={500} width={500} alt="About Faizan Farooq" />
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <Image src="/about-me.png" height={500} width={500} alt="About Faizan Farooq" />
+        </motion.div>
         <div className="mt-4 md:mt-0 flex flex-col h-full">
           <h2 className="text-4xl font-bold mb-4">About Me</h2>
           <p className="text-muted-foreground text-base lg:text-lg">
@@ -114,27 +121,27 @@ export const AboutSection = () => {
             delivering high-performance solutions that meet client needs.
           </p>
           <div className="flex flex-row mt-8">
-            <TabButton
-              active={tab === "Skills"}
-              children={"Skills"}
-              selectTab={() => handleChange("Skills")}
-            />
-            <TabButton
-              active={tab === "Education"}
-              children={"Education"}
-              selectTab={() => handleChange("Education")}
-            />
-            <TabButton
-              active={tab === "Experience"}
-              children={"Experience"}
-              selectTab={() => handleChange("Experience")}
-            />
+            {["Skills", "Education", "Experience"].map((item) => (
+              <motion.div key={item} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <TabButton
+                  active={tab === item}
+                  children={item}
+                  selectTab={() => handleChange(item)}
+                />
+              </motion.div>
+            ))}
           </div>
-          <div className="text-muted-foreground">
+          <motion.div 
+            className="text-muted-foreground"
+            key={tab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
             {tabData.find((data) => data.id === tab).content}
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 };

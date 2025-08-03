@@ -1,10 +1,12 @@
 "use client";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
+import { AnimatedSection } from "./AnimatedSection";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section id="hero">
+    <AnimatedSection id="hero" animation="zoomIn">
       <div className="grid grid-cols-1 md:grid-cols-12">
         <div className="col-span-12 md:col-span-7 place-self-center md:text-left text-center">
           <h1 className="mb-4 text-4xl md:text-6xl font-extrabold">
@@ -36,19 +38,35 @@ const HeroSection = () => {
             and integrating third-party APIs.
           </p>
           <div>
-            <a href="mailto:faizanfarooq993@gmail.com">
+            <motion.a 
+              href="mailto:faizanfarooq993@gmail.com"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <button className="px-6 py-3 rounded-full w-full md:w-fit mr-4 bg-gradient-to-r from-blue-400 to-red-300 hover:bg-slate-200 text-black">
                 Hire Me
               </button>
-            </a>
-            <button className="p-[1px] rounded-full w-full md:w-fit mr-4 bg-gradient-to-r from-blue-400 to-red-300 hover:bg-slate-800 text-white mt-4">
+            </motion.a>
+            <motion.a 
+              href="/faizan-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-[1px] rounded-full w-full md:w-fit mr-4 bg-gradient-to-r from-blue-400 to-red-300 hover:bg-slate-800 text-white mt-4 inline-block"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <span className="px-6 py-3 rounded-full block bg-card text-card">
                 Download CV
               </span>
-            </button>
+            </motion.a>
           </div>
         </div>
-        <div className="col-span-5 flex justify-center items-center">
+        <motion.div 
+          className="col-span-5 flex justify-center items-center"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: [0, 0.71, 0.2, 1.01] }}
+        >
           <div className="h-[250px] w-[250px] md:h-[300px] md:w-[300px] rounded-full relative mt-8 md:mt-0 bg-avatar">
             <Image
               src="/avatar.png"
@@ -58,9 +76,9 @@ const HeroSection = () => {
               alt="Faizan Farooq"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 };
 
