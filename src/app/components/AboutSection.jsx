@@ -117,7 +117,7 @@ export const AboutSection = () => {
             Full-stack Software Engineer with expertise in React, Node.js, AWS, and GraphQL. 
             Skilled in building scalable web and mobile applications, optimizing databases, 
             and integrating third-party APIs. Passionate about writing clean code and mentoring developers.
-            I've worked on security systems, healthcare applications, and marketing platforms,
+            I&apos;ve worked on security systems, healthcare applications, and marketing platforms,
             delivering high-performance solutions that meet client needs.
           </p>
           <div className="flex flex-row mt-8">
@@ -125,9 +125,10 @@ export const AboutSection = () => {
               <motion.div key={item} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <TabButton
                   active={tab === item}
-                  children={item}
                   selectTab={() => handleChange(item)}
-                />
+                >
+                  {item}
+                </TabButton>
               </motion.div>
             ))}
           </div>

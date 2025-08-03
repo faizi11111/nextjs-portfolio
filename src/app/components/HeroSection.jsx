@@ -11,7 +11,7 @@ const HeroSection = () => {
         <div className="col-span-12 md:col-span-7 place-self-center md:text-left text-center">
           <h1 className="mb-4 text-4xl md:text-6xl font-extrabold">
             <span className="gradient-text">
-              Hello, I'm
+              Hello, I&apos;m
             </span>
             <br />
             <div>
